@@ -6,10 +6,10 @@ html, body {
   background-color: #000012;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   margin: 0px;
-  padding: 0px;
+  padding: 1rem 0;
   width: 100%;
-  height: 100%;
   overflow-x: hidden;
+  min-height: 70vh;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -23,6 +23,7 @@ h1 {
 }
 
 .container {
+  position: relative;
   width: 100%;
   height: auto;
   min-height: 500px;
@@ -30,10 +31,9 @@ h1 {
   min-width: 250px;
   background: #303841;
   background-size: 25px 25px;
-
   box-shadow: 4px 3px 7px 2px #00000040;
   padding: 1rem;
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 .form input {
