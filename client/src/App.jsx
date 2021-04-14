@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import GlobalStyle from './elements/GlobalStyle';
 import axios from 'axios';
-import ToDoItem from './components/ToDoItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import ToDoInput from './components/ToDoInput';
+
 
 const App = () => {
   const [testing, setTesting] = useState();
-  const [inputText, setInputText] = useState("");
-  const [items, setItems] = useState([]);
-
+ 
   const getTesting = async () => {
     const {data} = await axios.get('http://localhost:9001/testServer');
     setTesting(data); 
@@ -19,25 +16,6 @@ const App = () => {
     getTesting();
   }, []);
 
-  function handleChange(event) {
-    const newValue = event.target.value;
-    setInputText(newValue);
-  }
-
-  function addItem() {
-    setItems((prevItems) => {
-      return [...prevItems, inputText];
-    });
-    setInputText("");
-  }
-
-  function deleteItem(id) {
-    setItems((prevItems) => {
-      return prevItems.filter((item, index) => {
-        return index !== id;
-      });
-    });
-  }
   return(
     <div>
       <GlobalStyle />
@@ -46,24 +24,7 @@ const App = () => {
         <h1>To-Do List</h1>
         <h2>{testing?.message}</h2>
       </div>
-      <div className="form">
-        <input value={inputText} onChange={handleChange} type="text" placeholder="Write your to-do here" />
-        <button onClick={addItem}>
-          <FontAwesomeIcon icon={faPlus} className="icon" />
-        </button>
-      </div>
-      <div>
-        <ul>
-          {items.map((toDoItem, index) => (
-            <ToDoItem
-              key={index}
-              id={index}
-              text={toDoItem}
-              onChecked={deleteItem}
-            />
-          ))}
-        </ul>
-      </div>
+      <ToDoInput />
     </div>
     </div>
   );
