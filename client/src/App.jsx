@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GlobalStyle from './elements/GlobalStyle';
+import axios from 'axios';
 import ToDoItem from './components/ToDoItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const App = () => {
+  const [testing, setTesting] = useState();
   const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
+
+  const getTesting = async () => {
+    const {data} = await axios.get('http://localhost:9001/testServer');
+    setTesting(data); 
+  }
+
+  useEffect(() => {
+    getTesting();
+  }, []);
 
   function handleChange(event) {
     const newValue = event.target.value;
@@ -33,6 +44,7 @@ const App = () => {
       <div className="container">
       <div className="heading">
         <h1>To-Do List</h1>
+        <h2>{testing?.message}</h2>
       </div>
       <div className="form">
         <input value={inputText} onChange={handleChange} type="text" placeholder="Write your to-do here" />
