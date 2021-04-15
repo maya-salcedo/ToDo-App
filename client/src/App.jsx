@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GlobalStyle from './elements/GlobalStyle';
+import ContainerWrapper from './elements/ContainerWrapper';
 import axios from 'axios';
 import ToDoInput from './components/ToDoInput';
 
@@ -19,13 +20,13 @@ const App = () => {
   return(
     <div>
       <GlobalStyle />
-      <div className="container">
-      <div className="heading">
+      <ContainerWrapper>
+      <div>
         <h1>To-Do List</h1>
         <h2>{testing?.message}</h2>
       </div>
       <ToDoInput />
-    </div>
+      </ContainerWrapper>
     </div>
   );
 }
