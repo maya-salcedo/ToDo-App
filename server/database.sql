@@ -1,7 +1,7 @@
 
 -- CREATE DATABASE IF NOT EXISTS todo_database;
 
---c\ into todo_database
+-- c\ into todo_database
 
 CREATE TABLE todolist(
     id SERIAL PRIMARY KEY,
