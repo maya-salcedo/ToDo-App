@@ -9,7 +9,7 @@ const App = () => {
   const [testing, setTesting] = useState();
  
   const getTesting = async () => {
-    const {data} = await axios.get('http://localhost:9001/testServer');
+    const {data} = await axios.get('http://localhost:9000/testServer');
     setTesting(data); 
   }
 

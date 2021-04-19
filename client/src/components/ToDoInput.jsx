@@ -70,7 +70,7 @@ const ToDoInput = () => {
 
   const postTesting = async () => {
     try {
-      await axios.post('http://localhost:9001/todoinput', {
+      await axios.post('http://localhost:9000/todoinput', {
         Item: inputText
       });
     } catch (err) {
