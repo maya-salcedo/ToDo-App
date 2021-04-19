@@ -10,8 +10,6 @@ router.post("/", async (req, res) => {
       `INSERT INTO todolist(item) VALUES($1) RETURNING *`, [Item]
     );
     res.json(newItem.rows[0]);
-    const MyItem = newItem.rows[0];
-    console.log(MyItem);
 } catch (err) {
     console.error(err.message);
     res.status(500).send('Something Went Wrong');
@@ -21,6 +19,7 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const allItems = await pool.query("SELECT * FROM todolist");
+    console.log(allItems.rows);
     res.json(allItems.rows);
   } catch (err) {
     console.err(err.message);

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import ToDoItem from './ToDoItem';
 import axios from "axios";
 
 const InputWrapper = styled.input`
@@ -66,7 +65,7 @@ const ButtonWrapper = styled.button`
 const ToDoInput = () => {
 
   const [inputText, setInputText] = useState("");
-  const [items, setItems] = useState([]);
+  //  const [items, setItems] = useState([]);
 
   const postTesting = async () => {
     try {
@@ -90,13 +89,13 @@ const ToDoInput = () => {
   //   setInputText("");
   // };
 
-  const deleteItem = (id) => {
-    setItems((prevItems) => {
-      return prevItems.filter((item, index) => {
-        return index !== id;
-      });
-    });
-  };
+  // const deleteItem = (id) => {
+  //   setItems((prevItems) => {
+  //     return prevItems.filter((item, index) => {
+  //       return index !== id;
+  //     });
+  //   });
+  // };
 
   return (
     <div>
@@ -106,19 +105,7 @@ const ToDoInput = () => {
           <FontAwesomeIcon icon={faPlus} className="icon" />
         </ButtonWrapper>
       </form>
-    <div>
-      <ul>
-        {items.map((toDoItem, index) => (
-          <ToDoItem
-            key={index}
-            id={index}
-            text={toDoItem}
-            onChecked={deleteItem}
-          />
-        ))}
-      </ul>
     </div>
-  </div>
   );
 }
 
