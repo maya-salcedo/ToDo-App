@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import ToDoItem from './ToDoItem';
+import axios from "axios";
 
 const InputWrapper = styled.input`
   box-sizing: border-box;
@@ -65,49 +65,31 @@ const ButtonWrapper = styled.button`
 const ToDoInput = () => {
 
   const [inputText, setInputText] = useState("");
-  const [items, setItems] = useState([]);
+
+  const postTesting = async () => {
+    try {
+      await axios.post('http://localhost:9000/todoinput', {
+        Item: inputText
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   const handleChange = (event) => {
     const newValue = event.target.value;
     setInputText(newValue);
   };
 
-  const addItem = () => {
-    setItems((prevItems) => {
-      return [...prevItems, inputText];
-    });
-    setInputText("");
-  };
-
-  const deleteItem = (id) => {
-    setItems((prevItems) => {
-      return prevItems.filter((item, index) => {
-        return index !== id;
-      });
-    });
-  };
-
   return (
     <div>
-      <div>
+      <form onSubmit={postTesting}>
         <InputWrapper value={inputText} onChange={handleChange} type="text" placeholder="Write your to-do here" />
-        <ButtonWrapper onClick={addItem}>
+        <ButtonWrapper>
           <FontAwesomeIcon icon={faPlus} className="icon" />
         </ButtonWrapper>
-      </div>
-    <div>
-      <ul>
-        {items.map((toDoItem, index) => (
-          <ToDoItem
-            key={index}
-            id={index}
-            text={toDoItem}
-            onChecked={deleteItem}
-          />
-        ))}
-      </ul>
+      </form>
     </div>
-  </div>
   );
 }
 
