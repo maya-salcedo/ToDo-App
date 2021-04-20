@@ -28,7 +28,7 @@ const TodoList = () => {
  
   const getList = async () => {
     try {
-      const { data } = await axios.get('http://localhost:9000/todoinput');
+      const { data } = await axios.get('/api/todoinput');
       setList(data);  
     } catch (err) {
       console.error(err.message);
@@ -37,7 +37,7 @@ const TodoList = () => {
 
   const deleteItem = async id => {
     try {
-      await axios.delete(`http://localhost:9000/todoinput/${id}`);
+      await axios.delete(`/api/todoinput/${id}`);
       window.location = "/";
     } catch (err) {
       console.log(err);
