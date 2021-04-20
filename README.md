@@ -1,5 +1,7 @@
 This ToDo-App is available at https://itsmytodolist.herokuapp.com/
 
+[![todolist-img.png](https://i.postimg.cc/xjNWdTWb/todolist-img.png)](https://postimg.cc/ThGk7G2R)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
