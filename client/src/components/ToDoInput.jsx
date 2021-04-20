@@ -65,7 +65,6 @@ const ButtonWrapper = styled.button`
 const ToDoInput = () => {
 
   const [inputText, setInputText] = useState("");
-  //  const [items, setItems] = useState([]);
 
   const postTesting = async () => {
     try {
@@ -81,21 +80,6 @@ const ToDoInput = () => {
     const newValue = event.target.value;
     setInputText(newValue);
   };
-
-  // const addItem = () => {
-  //   setItems((prevItems) => {
-  //     return [...prevItems, inputText];
-  //   });
-  //   setInputText("");
-  // };
-
-  // const deleteItem = (id) => {
-  //   setItems((prevItems) => {
-  //     return prevItems.filter((item, index) => {
-  //       return index !== id;
-  //     });
-  //   });
-  // };
 
   return (
     <div>

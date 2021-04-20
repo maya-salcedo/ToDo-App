@@ -28,6 +28,16 @@ const TodoList = () => {
     }
   };
 
+  const deleteItem = async id => {
+    console.log(id);
+    try {
+      await axios.delete(`http://localhost:9000/todoinput/${id}`);
+      window.location = "/";
+    } catch (err) {
+      console.log(err);
+    }
+  }; 
+
   useEffect(() => {
     getList();
   }, []);
@@ -38,7 +48,7 @@ const TodoList = () => {
     <div>
       <ListWrapper>
         {list.map(toDo => (
-          <li key={toDo.id}>
+          <li key={toDo.id} onClick={() => deleteItem(toDo.id)}>
             {toDo.item}
           </li>
         ))}
