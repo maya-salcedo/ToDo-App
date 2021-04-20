@@ -1,10 +1,8 @@
 import React from 'react';
 import GlobalStyle from './elements/GlobalStyle';
 import ContainerWrapper from './elements/ContainerWrapper';
-
 import ToDoInput from './components/ToDoInput';
 import TodoList from './components/ToDoList';
-
 
 const App = () => {
   

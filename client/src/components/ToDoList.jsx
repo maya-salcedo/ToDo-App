@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const ListWrapper = styled.ul`
+  padding-inline-start: 30px;
   > li {
     text-align: left;
     position: relative;
@@ -12,6 +13,12 @@ const ListWrapper = styled.ul`
     font-size: 2rem;
     list-style-type: square;
     word-break: break-all;
+    @media(max-width: 528px){
+    font-size: 1.5rem;
+    }
+    @media(max-width: 320px){
+    font-size: 1.2rem;
+    }
   }
 `;
 
@@ -29,7 +36,6 @@ const TodoList = () => {
   };
 
   const deleteItem = async id => {
-    console.log(id);
     try {
       await axios.delete(`http://localhost:9000/todoinput/${id}`);
       window.location = "/";
@@ -41,8 +47,6 @@ const TodoList = () => {
   useEffect(() => {
     getList();
   }, []);
-
-  console.log(list);
 
   return (
     <div>
