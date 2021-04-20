@@ -32,7 +32,6 @@ h1 {
 .icon:hover {
   color: #f7f7f7;
 }
-
 `;
 
 

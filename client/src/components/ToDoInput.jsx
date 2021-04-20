@@ -18,7 +18,7 @@ const InputWrapper = styled.input`
   outline: none;
   @media(max-width: 528px){
     max-width: 20rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   @media(max-width: 515px){
     max-width: 19,5rem;
@@ -28,18 +28,17 @@ const InputWrapper = styled.input`
   }
   @media(max-width: 496px){
     max-width: 17rem;
-    font-size: 1.2rem;
   }
   @media(max-width: 427px){
     max-width: 16rem;
+    font-size: 1.2rem;
   }
   @media(max-width: 392px){
     max-width: 15rem;
-    font-size: 1rem;
   }
   @media(max-width: 366px){
     max-width: 14rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   @media(max-width: 350px){
     max-width: 12rem;
