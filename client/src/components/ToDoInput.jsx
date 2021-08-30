@@ -75,7 +75,7 @@ const ToDoInput = () => {
 
   const addItem = async () => {
     try {
-      await axios.post('http://localhost:9000/todoinput', {
+      await axios.post('/api/todoinput', {
         Item: inputText,
       });
     } catch (err) {
