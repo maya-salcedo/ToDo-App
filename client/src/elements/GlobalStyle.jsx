@@ -34,6 +34,4 @@ h1 {
 }
 `;
 
-
-
 export default GlobalStyle;
