@@ -22,16 +22,6 @@ h1 {
   color: #f6c90e;
 }
 
-.icon {
-  font-size: 200%;
-  @media(max-width: 390px){
-    font-size: 150%;
-  }
-}
-
-.icon:hover {
-  color: #f7f7f7;
-}
 `;
 
 export default GlobalStyle;
