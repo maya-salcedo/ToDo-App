@@ -16,12 +16,6 @@ html, body {
   align-items: center;
   text-align: center;
 }
-
-h1 {
-  font-family: 'Permanent Marker', cursive;
-  color: #f6c90e;
-}
-
 `;
 
 export default GlobalStyle;

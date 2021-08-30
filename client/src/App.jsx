@@ -5,19 +5,18 @@ import ToDoInput from './components/ToDoInput';
 import TodoList from './components/ToDoList';
 
 const App = () => {
-  
-  return(
+  return (
     <div>
       <GlobalStyle />
       <ContainerWrapper>
-      <div>
-        <h1>To-Do List</h1>
-      </div>
-      <ToDoInput />
-      <TodoList />
+        <div>
+          <h1>To-Do List</h1>
+        </div>
+        <ToDoInput />
+        <TodoList />
       </ContainerWrapper>
     </div>
   );
-}
+};
 
 export default App;
