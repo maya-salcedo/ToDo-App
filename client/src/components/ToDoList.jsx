@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -13,36 +13,36 @@ const ListWrapper = styled.ul`
     font-size: 2rem;
     list-style-type: square;
     word-break: break-all;
-    @media(max-width: 528px){
-    font-size: 1.5rem;
+    cursor: pointer;
+    @media (max-width: 528px) {
+      font-size: 1.5rem;
     }
-    @media(max-width: 320px){
-    font-size: 1.2rem;
+    @media (max-width: 320px) {
+      font-size: 1.2rem;
     }
   }
 `;
 
 const TodoList = () => {
-
   const [list, setList] = useState([]);
- 
+
   const getList = async () => {
     try {
-      const { data } = await axios.get('http://localhost:9000/todoinput');
-      setList(data);  
+      const { data } = await axios.get('/todoinput');
+      setList(data);
     } catch (err) {
       console.error(err.message);
     }
   };
 
-  const deleteItem = async id => {
+  const deleteItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/todoinput/${id}`);
-      window.location = "/";
+      await axios.delete(`/todoinput/${id}`);
+      window.location = '/';
     } catch (err) {
       console.log(err);
     }
-  }; 
+  };
 
   useEffect(() => {
     getList();
@@ -51,14 +51,14 @@ const TodoList = () => {
   return (
     <div>
       <ListWrapper>
-        {list.map(toDo => (
-          <li key={toDo.id} onClick={() => deleteItem(toDo.id)}>
-            {toDo.item}
+        {list.map((item) => (
+          <li key={item.id} onClick={() => deleteItem(item.id)}>
+            {item.item}
           </li>
         ))}
       </ListWrapper>
     </div>
-  )
-}
+  );
+};
 
 export default TodoList;
