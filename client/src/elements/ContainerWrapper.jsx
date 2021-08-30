@@ -12,27 +12,33 @@ const StyledContainer = styled.div`
   background-size: 25px 25px;
   box-shadow: 4px 3px 7px 2px #00000040;
   padding: 1rem;
-  box-sizing: border-box; 
-  @media(max-width: 490px){
+  box-sizing: border-box;
+  @media (max-width: 490px) {
     max-width: 25rem;
   }
-  @media(max-width: 427px){
+  @media (max-width: 427px) {
     max-width: 22rem;
   }
-  @media(max-width: 384px){
+  @media (max-width: 384px) {
     max-width: 20rem;
   }
-  @media(max-width: 344px){
+  @media (max-width: 344px) {
     max-width: 18rem;
   }
-  @media(max-width: 304px){
+  @media (max-width: 304px) {
     max-width: 16rem;
   }
-  @media(max-width: 304px){
+  @media (max-width: 304px) {
     max-width: 14rem;
+  }
+  & h1 {
+    font-family: 'Permanent Marker', cursive;
+    color: #f6c90e;
   }
 `;
 
-const ContainerWrapper = ({children}) => <StyledContainer>{children}</StyledContainer>;
+const ContainerWrapper = ({ children }) => (
+  <StyledContainer>{children}</StyledContainer>
+);
 
 export default ContainerWrapper;
