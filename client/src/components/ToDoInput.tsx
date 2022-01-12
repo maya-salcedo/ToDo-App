@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { TodoItemType } from '../type/TodoItemType';
 
 const InputWrapper = styled.input`
   box-sizing: border-box;
@@ -75,8 +76,9 @@ const ToDoInput: React.FC = () => {
 
   const addItem = async () => {
     try {
-      await axios.post('/api/todoinput', {
-        Item: inputText,
+      await axios.post<TodoItemType>('/api/todoinput', {
+        id: Math.trunc(Math.random() * 1000000),
+        item: inputText,
       });
     } catch (err) {
       if (err) {
