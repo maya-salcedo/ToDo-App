@@ -13,7 +13,7 @@ const InputWrapper = styled.input`
   font-family: 'Source Code Pro', monospace;
   font-size: 1.5rem;
   color: #f7f7f7;
-  width: 22rem;
+  width: 80%;
   margin-bottom: 20px;
   outline: none;
   @media (max-width: 528px) {
@@ -70,7 +70,7 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-const ToDoInput = () => {
+const ToDoInput: React.FC = () => {
   const [inputText, setInputText] = useState('');
 
   const addItem = async () => {
@@ -79,11 +79,13 @@ const ToDoInput = () => {
         Item: inputText,
       });
     } catch (err) {
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setInputText(newValue);
   };

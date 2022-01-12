@@ -23,22 +23,27 @@ const ListWrapper = styled.ul`
   }
 `;
 
-const TodoList = () => {
-  const [list, setList] = useState([]);
+type TodoItemType = {
+  id: string;
+  item: string;
+};
+
+const TodoList: React.FC = () => {
+  const [list, setList] = useState<TodoItemType[]>([]);
 
   const getList = async () => {
     try {
       const { data } = await axios.get('/api/todoinput');
       setList(data);
     } catch (err) {
-      console.error(err.message);
+      console.error(err);
     }
   };
 
-  const deleteItem = async (id) => {
+  const deleteItem = async (id: string) => {
     try {
       await axios.delete(`/api/todoinput/${id}`);
-      window.location = '/';
+      window.location.href = '/';
     } catch (err) {
       console.log(err);
     }

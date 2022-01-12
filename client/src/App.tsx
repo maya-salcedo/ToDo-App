@@ -4,7 +4,7 @@ import ContainerWrapper from './elements/ContainerWrapper';
 import ToDoInput from './components/ToDoInput';
 import TodoList from './components/ToDoList';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       <GlobalStyle />
