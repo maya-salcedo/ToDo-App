@@ -33,8 +33,9 @@ const TodoList: React.FC = () => {
 
   const getList = async () => {
     try {
-      const { data } = await axios.get('/api/todoinput');
+      const { data } = await axios.get<TodoItemType[]>('/api/todoinput');
       setList(data);
+      console.log(data);
     } catch (err) {
       console.error(err);
     }
