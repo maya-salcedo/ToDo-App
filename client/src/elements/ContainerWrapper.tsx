@@ -37,7 +37,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-const ContainerWrapper = ({ children }) => (
+const ContainerWrapper: React.FC = ({ children }) => (
   <StyledContainer>{children}</StyledContainer>
 );
 
