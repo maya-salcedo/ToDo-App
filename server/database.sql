@@ -4,6 +4,7 @@
 -- c\ into todo_database
 
 CREATE TABLE todolist(
-    id SERIAL PRIMARY KEY,
+    key SERIAL PRIMARY KEY,
+    id INT(30) NOT NULL,
     item VARCHAR(10000) NOT NULL
 );

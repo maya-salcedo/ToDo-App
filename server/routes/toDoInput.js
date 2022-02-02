@@ -4,10 +4,10 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { Item } = req.body;
+    const { id: Id, item: Item } = req.body;
     const newItem = await pool.query(
-      'INSERT INTO todolist(item) VALUES($1) RETURNING *',
-      [Item]
+      'INSERT INTO todolist(id, item) VALUES($1, $2) RETURNING *',
+      [Id, Item]
     );
     res.json(newItem.rows[0]);
   } catch (err) {
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     const allItems = await pool.query('SELECT * FROM todolist');
     res.json(allItems.rows);
   } catch (err) {
-    console.err(err.message);
+    console.err('is it coming from get', err.message);
   }
 });
 

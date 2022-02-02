@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { TodoItemType } from '../type/TodoItemType';
 
 const InputWrapper = styled.input`
   box-sizing: border-box;
@@ -13,7 +14,7 @@ const InputWrapper = styled.input`
   font-family: 'Source Code Pro', monospace;
   font-size: 1.5rem;
   color: #f7f7f7;
-  width: 22rem;
+  width: 80%;
   margin-bottom: 20px;
   outline: none;
   @media (max-width: 528px) {
@@ -70,20 +71,23 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-const ToDoInput = () => {
+const ToDoInput: React.FC = () => {
   const [inputText, setInputText] = useState('');
 
   const addItem = async () => {
     try {
-      await axios.post('/api/todoinput', {
-        Item: inputText,
+      await axios.post<TodoItemType>('/api/todoinput', {
+        id: Math.trunc(Math.random() * 1000000),
+        item: inputText,
       });
     } catch (err) {
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setInputText(newValue);
   };

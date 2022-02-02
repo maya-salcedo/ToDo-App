@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { TodoItemType } from '../type/TodoItemType';
 
 const ListWrapper = styled.ul`
   padding-inline-start: 30px;
@@ -23,22 +24,23 @@ const ListWrapper = styled.ul`
   }
 `;
 
-const TodoList = () => {
-  const [list, setList] = useState([]);
+const TodoList: React.FC = () => {
+  const [list, setList] = useState<TodoItemType[]>([]);
 
   const getList = async () => {
     try {
-      const { data } = await axios.get('/api/todoinput');
+      const { data } = await axios.get<TodoItemType[]>('/api/todoinput');
       setList(data);
+      console.log(data);
     } catch (err) {
-      console.error(err.message);
+      console.error(err);
     }
   };
 
-  const deleteItem = async (id) => {
+  const deleteItem = async (id: number) => {
     try {
-      await axios.delete(`/api/todoinput/${id}`);
-      window.location = '/';
+      await axios.delete(`/api/todoinput/${id.toString()}`);
+      window.location.href = '/';
     } catch (err) {
       console.log(err);
     }
